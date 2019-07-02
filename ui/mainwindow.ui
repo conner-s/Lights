@@ -23,6 +23,9 @@
       <height>551</height>
      </rect>
     </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
     </property>
@@ -40,42 +43,42 @@
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
-       <widget class="QPushButton" name="pushButton">
+       <widget class="QPushButton" name="lights_on_button">
         <property name="text">
          <string>Lights On</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_3">
+       <widget class="QPushButton" name="lights_off_button">
         <property name="text">
          <string>Lights Off</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_4">
+       <widget class="QPushButton" name="dim_lights_button">
         <property name="text">
          <string>Dim</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_6">
+       <widget class="QPushButton" name="bright_lights_button">
         <property name="text">
          <string>Bright</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_5">
+       <widget class="QPushButton" name="set_white_button">
         <property name="text">
          <string>Set to White</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_2">
+       <widget class="QPushButton" name="set_red_button">
         <property name="text">
          <string>Set to Red</string>
         </property>
@@ -86,30 +89,22 @@
     <widget class="QWidget" name="verticalLayoutWidget_2">
      <property name="geometry">
       <rect>
-       <x>399</x>
-       <y>149</y>
-       <width>381</width>
-       <height>151</height>
+       <x>379</x>
+       <y>10</y>
+       <width>401</width>
+       <height>401</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
-       <widget class="QLabel" name="label">
-        <property name="text">
-         <string>Found Lights</string>
-        </property>
-       </widget>
+       <widget class="QListWidget" name="light_list"/>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout">
-        <item>
-         <widget class="QPushButton" name="pushButton_13">
-          <property name="text">
-           <string>Set Lights to Control</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
+       <widget class="QPushButton" name="set_light">
+        <property name="text">
+         <string>Set Light</string>
+        </property>
+       </widget>
       </item>
      </layout>
     </widget>
@@ -124,28 +119,28 @@
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout_3">
       <item>
-       <widget class="QLineEdit" name="lineEdit_3">
+       <widget class="QLineEdit" name="r_value">
         <property name="placeholderText">
          <string>Red</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="lineEdit_2">
+       <widget class="QLineEdit" name="g_value">
         <property name="placeholderText">
          <string>Green</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="lineEdit">
+       <widget class="QLineEdit" name="b_value">
         <property name="placeholderText">
          <string>Blue</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_14">
+       <widget class="QPushButton" name="rgb_enter">
         <property name="text">
          <string>Set RGB</string>
         </property>
@@ -154,22 +149,6 @@
      </layout>
     </widget>
    </widget>
-  </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>800</width>
-     <height>26</height>
-    </rect>
-   </property>
-   <widget class="QMenu" name="menuPylights">
-    <property name="title">
-     <string>Pylights</string>
-    </property>
-   </widget>
-   <addaction name="menuPylights"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
