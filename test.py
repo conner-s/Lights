@@ -15,6 +15,13 @@ class QtUi(ui.Ui_MainWindow, QtWidgets.QMainWindow):
 		# button function connection
 		self.rgb_enter.clicked.connect(self.get_user_rgb)
 		self.set_light.clicked.connect(self.connect_bulb)
+		self.set_white_button.clicked.connect(self.set_white)
+		self.set_red_button.clicked.connect(self.set_red)
+		self.lights_on_button.clicked.connect(self.set_light_on)
+		self.lights_off_button.clicked.connect(self.set_light_off)
+		self.bright_lights_button.clicked.connect(self.brighten_light)
+		self.dim_lights_button.clicked.connect(self.dim_light)
+
 
 		found_bulbs = bulb_scanner.scan(3)
 		if found_bulbs is not None:
@@ -39,6 +46,34 @@ class QtUi(ui.Ui_MainWindow, QtWidgets.QMainWindow):
 			u_blue = self.b_value.text()
 			if u_red is not None and u_green is not None and u_blue is not None:
 				self.active_bulb.setRgb(int(u_red), int(u_green), int(u_blue))
+
+	def set_white(self):
+		if self.active_bulb is not None:
+			self.active_bulb.setRgb(255, 255, 255)
+
+	def set_red(self):
+		if self.active_bulb is not None:
+			self.active_bulb.setRgb(255, 0, 0)
+
+	def set_light_on(self):
+		if self.active_bulb is not None:
+			self.active_bulb.turnOn()
+
+	def set_light_off(self):
+		if self.active_bulb is not None:
+			self.active_bulb.turnOff()
+
+	def brighten_light(self):
+		if self.active_bulb is not None:
+			rgbw = self.active_bulb.getRgbw()
+			if rgbw[3]+5 < 255:
+				self.active_bulb.setRgbw(rgbw[0], rgbw[1], rgbw[2], rgbw[3]+5)
+
+	def dim_light(self):
+		if self.active_bulb is not None:
+			rgbw = self.active_bulb.getRgbw()
+			if rgbw[3] - 5 > 0:
+				self.active_bulb.setRgbw(rgbw[0], rgbw[1], rgbw[2], rgbw[3] - 5)
 
 
 def cli_lights():
